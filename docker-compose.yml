@@ -9,9 +9,11 @@ services:
 
     listings-service-db:
         environment:
-            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=db
         image: mysql:5.7.20
+        ports:
+            - 0.0.0.0:7200:3306
 
     users-services:
         build: "./users-service"
@@ -22,6 +24,8 @@ services:
 
     users-service-db:
         environment:
-            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=db
         image: mysql:5.7.20
+        ports:
+            - 0.0.0.0:7201:3306
