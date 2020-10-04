@@ -4,6 +4,8 @@ services:
         build: "./listings-service"
         depends_on:
             - listings-service-db
+        environment:
+            - DB_URI=mysql://aziz:root@listings-service-db/db?charset=UTF8
         volumes:
             - ./listings-service:/opt/app
 
@@ -19,6 +21,8 @@ services:
         build: "./users-service"
         depends_on:
             - users-service-db
+        environment:
+            - DB_URI=mysql://aziz:root@users-service-db/db?charset=UTF8
         volumes:
             - ./users-service:/opt/app
 
